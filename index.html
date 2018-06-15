@@ -9,44 +9,120 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link href="./css/bootstrap-4-hover-navbar.css" rel="stylesheet">
+
     <title>Alpha - CL FFXIV</title>
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark btco-hover-menu">
       <a class="navbar-brand" href="#">
         <img src="./Images/logoAlpha.png" width="30" height="30" alt="">
         CL Alpha
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="./Sorties/Planning.html">Planning</a>
-          </li>
-          <li class="nav-item">
-            <!--<a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="../Sorties/Planning.html">Planning</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>-->
-        </li>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Guides
+          </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item bg-dark text-light" href="./Guides/debutant.html">Débutants</a></li>
+              <h5 class="dropdown-header bg-dark text-light">Jobs</h6>
+              <li><a class="dropdown-item bg-dark text-light dropdown-toggle" href="#">Tanks</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/paladin.html">
+                    <img src="./Images/Job_Icon/Paladin.png" width="32" height="32" alt="">
+                    Paladin
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/guerrier.html">
+                    <img src="./Images/Job_Icon/Guerrier.png" width="32" height="32" alt="">
+                    Guerrier
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/chevalier_noir.html">
+                    <img src="./Images/Job_Icon/Chevalier_Noir.png" width="32" height="32" alt="">
+                    Chevalier Noir
+                  </a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item bg-dark text-light dropdown-toggle" href="#">Soigneurs</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/mage_blanc.html">
+                    <img src="./Images/Job_Icon/Mage_Blanc.png" width="32" height="32" alt="">
+                    Mage Blanc
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/erudit.html">
+                    <img src="./Images/Job_Icon/Erudit.png" width="32" height="32" alt="">
+                    Érudit
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/astromancien.html">
+                    <img src="./Images/Job_Icon/Astromancien.png" width="32" height="32" alt="">
+                    Astromancien
+                  </a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item bg-dark text-light dropdown-toggle" href="#">DPS Corps à Corps</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/moine.html">
+                    <img src="./Images/Job_Icon/Moine.png" width="32" height="32" alt="">
+                    Moine
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/chevalier_dragon.html">
+                    <img src="./Images/Job_Icon/Chevalier_Dragon.png" width="32" height="32" alt="">
+                    Chevalier Dragon
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/ninja.html">
+                    <img src="./Images/Job_Icon/Ninja.png" width="32" height="32" alt="">
+                    Ninja
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/samourai.html">
+                    <img src="./Images/Job_Icon/Samourai.png" width="32" height="32" alt="">
+                    Samouraï
+                  </a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item bg-dark text-light dropdown-toggle" href="#">DPS Distance</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/barde.html">
+                    <img src="./Images/Job_Icon/Barde.png" width="32" height="32" alt="">
+                    Barde
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/machiniste.html">
+                    <img src="./Images/Job_Icon/Machiniste.png" width="32" height="32" alt="">
+                    Machiniste
+                  </a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item bg-dark text-light dropdown-toggle" href="#">DPS Magiques</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/mage_noir.html">
+                    <img src="./Images/Job_Icon/Mage_Noir.png" width="32" height="32" alt="">
+                    Mage Noir
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/invocateur.html">
+                    <img src="./Images/Job_Icon/Invocateur.png" width="32" height="32" alt="">
+                    Invocateur
+                  </a></li>
+                  <li><a class="dropdown-item bg-dark text-light" href="./Guides/mage_rouge.html">
+                    <img src="./Images/Job_Icon/Mage_Rouge.png" width="32" height="32" alt="">
+                    Mage Rouge
+                  </a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>
+
+
     <br>
     <img src="./Images/Logo_Alpha_dark.png" class="center" style="width:460px;height:319px;"></img>
     <br>
@@ -118,7 +194,7 @@
     </div>
 
     <br>
-    <div class="container-fluid" style="color : black">
+    <div class="container-fluid bg-black">
         <div class="row">
 
           <div class="col text-right">
@@ -128,11 +204,11 @@
 
     </div>
 
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="js/bootstrap-4-hover-navbar.js"></script>
   </body>
 </html>
