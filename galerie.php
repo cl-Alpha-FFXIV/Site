@@ -8,16 +8,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
 
-    <link href="./css/bootstrap-4-hover-navbar.css" rel="stylesheet">
+    <link href="../css/bootstrap-4-hover-navbar.css" rel="stylesheet">
 
     <title>Alpha - CL FFXIV</title>
+
+
   </head>
   <body>
 
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark btco-hover-menu">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="./accueil.html">
         <img src="./Images/logoAlpha.png" width="30" height="30" alt="">
         CL Alpha
       </a>
@@ -27,7 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link active-item" href="./Planning.html">Planning</a>
+            <a class="nav-link active-item" href="./planning.html">Planning</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -137,107 +139,62 @@
           </li>
           <li>
             <li class="nav-item">
-              <a class="nav-link active-item" href="./galerie.html">Galerie</a>
+              <a class="nav-link active-item" href="./galerie.php">Galerie</a>
             </li>
           </li>
         </ul>
       </div>
     </nav>
 
+    <br>
+    <br>
 
-    <br>
-    <img src="./Images/Logo_Alpha_dark.png" class="center" style="width:460px;height:319px;"></img>
-    <br>
-    <br>
-    <div class="container ">
-      <div id="carouselIndicators" class="carousel slide shadow-lg" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
+    <div class="container bg-dark rounded">
+      <br>
+      <div class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="./Images/Carousel/kugane_carousel.png" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="./Images/Carousel/ishgard_carousel.jpg" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="./Images/Carousel/midgardsorm_carousel.jpg" alt="Third slide">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-
-
-    <div class="container-fluid text-center">
-      <br>
-      <div class="row">
-        <div class="col-5 center">
-          <div class="line"></div>
-        </div>
-        <div class="col-2">
-          <img src="./Images/ffxivmeteorlogo.png" width="93" height="100" alt="">
-        </div>
-        <div class="col-5 center">
-          <div class="line"></div>
-        </div>
-      </div>
-      <br>
-    </div>
-
-
-    <div class="container bg-dark">
-      <br>
-      <div class="row">
-        <div class="col-12 text-center">
-          <a href="./Sorties/Planning.html">
-          <img src="./Images/Rappel_Sorties.png" class="img-fluid" alt="Sortie du week end : Pensez à vous inscrire !">
-          <!--@everyone-->
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col">
-          <a class="twitter-timeline" data-lang="fr" data-width="350" data-height="500" data-theme="dark" data-link-color="#F5F8FA" href="https://twitter.com/Alpha_ffxiv?ref_src=twsrc%5Etfw">Tweets by Alpha_ffxiv</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-        <div class="col-md-auto text">
-          <iframe src="https://discordapp.com/widget?id=194076527774793738&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-      </div>
-      <div class="row">
-        <!-- start feedwind code -->
-        <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="82911/"></script>
-        <!-- end feedwind code -->
-      </div>
-    </div>
-
-    <br>
-    <div class="container-fluid bg-black">
-        <div class="row">
-
-          <div class="col text-right">
-            <!--<a href="https://www.freepik.com/free-vector/various-silhouettes-of-wolves_1162411.htm">Designed by Freepik</a>-->
+          <?php
+            $class_active = true;
+            $dirname = "../Images/Galerie/";
+            $images = glob($dirname."*.png");
+            foreach($images as $image) {
+              echo '<div class="carousel-item ';
+			  if($class_active == true){ echo 'active' ; $class_active = false;}
+			  echo '"><img  class="d-block w-100 rounded" src="';
+			  echo $image;
+			  echo '" /></div> ';
+            }
+            ?>
           </div>
         </div>
-
-
+      <br>
     </div>
+<br>
+<br>
+<div class="container-fluid gallery-container">
+    <?php
+            $nbr_img = 0;
+            $dirname = "../Images/Galerie/";
+            $images = glob($dirname."*.png");
+            foreach($images as $image) {
+				if($nbr_img == 0){echo '<div class="row">';}
+              echo '<div class="col-md-3"> <div class="card"><a class="lightbox" href=" ';
+			  echo $image;
+			  echo '"><img  class="d-block w-100 rounded" src="';
+			  echo $image;
+			  echo '" class="card-img-top"></a></div><br></div>';
+				$nbr_img++;
+				if($nbr_img == 4){ echo '</div>'; $nbr_img=0;}
+			}
+            ?>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="./js/bootstrap-4-hover-navbar.js"></script>
+    <script src="../js/bootstrap-4-hover-navbar.js"></script>
+
   </body>
 </html>
