@@ -3885,7 +3885,7 @@ var View = /** @class */ (function (_super) {
         if (dateMutation) {
             eventInstance.dateProfile = dateMutation.buildNewDateProfile(eventInstance.dateProfile, this.calendar);
         }
-        this.triggerEventDrop(eventInstance, 
+        this.triggerEventDrop(eventInstance,
         // a drop doesn't necessarily mean a date mutation (ex: resource change)
         (dateMutation && dateMutation.dateDelta) || moment.duration(), undoFunc, el, ev);
     };
@@ -14473,9 +14473,9 @@ var DayGridEventRenderer = /** @class */ (function (_super) {
                 (util_1.htmlEscape(eventDef.title || '') || '&nbsp;') + // we always want one line of height
                 '</span>';
         return '<a class="' + classes.join(' ') + '"' +
-            (eventDef.url ?
+            /*(eventDef.url ?
                 ' href="' + util_1.htmlEscape(eventDef.url) + '"' :
-                '') +
+                '') +*/
             (skinCss ?
                 ' style="' + skinCss + '"' :
                 '') +

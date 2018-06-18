@@ -4,11 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="shortcut icon" href="./Images/favicon.ico" >
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
 
     <link href="./css/bootstrap-4-hover-navbar.css" rel="stylesheet">
 
@@ -155,7 +157,7 @@
         <div class="carousel-inner">
           <?php
             $class_active = true;
-            $dirname = "../Images/Galerie/";
+            $dirname = "./Images/Galerie/";
             $images = glob($dirname."*.png");
             foreach($images as $image) {
               echo '<div class="carousel-item ';
@@ -174,7 +176,7 @@
 <div class="container-fluid gallery-container">
     <?php
             $nbr_img = 0;
-            $dirname = "../Images/Galerie/";
+            $dirname = "./Images/Galerie/";
             $images = glob($dirname."*.png");
             foreach($images as $image) {
 				if($nbr_img == 0){echo '<div class="row">';}

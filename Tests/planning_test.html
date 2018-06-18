@@ -25,6 +25,12 @@
     <script src="../fullcalendar/gcal.js"></script>
     <script src='../fullcalendar/locale-all.js'></script>
 
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+    </script>
+
 
     <script>
     $(function() {
@@ -191,6 +197,7 @@
       <br>
       <div id='calendar'></div>
       <br>
+      <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
     </div>
 
 
