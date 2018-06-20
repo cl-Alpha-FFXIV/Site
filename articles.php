@@ -1,23 +1,11 @@
-<?php require('includes/config.php'); 
-
-$stmt = $db->prepare('SELECT postID, postTitle, postCont, postDate FROM blog_posts WHERE postID = :postID');
-$stmt->execute(array(':postID' => $_GET['id']));
-$row = $stmt->fetch();
-
-//if post does not exists redirect user.
-if($row['postID'] == ''){
-    header('Location: ./');
-    exit;
-}
-
-?>
+<?php require('includes/config.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-	
-	<link rel="shortcut icon" href="./Images/favicon.ico" >
+
+	  <link rel="shortcut icon" href="./Images/favicon.ico" >
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -30,7 +18,7 @@ if($row['postID'] == ''){
   </head>
 <body>
 
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark btco-hover-menu">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark btco-hover-menu">
     <a class="navbar-brand" href="./accueil.html">
       <img src="./Images/logoAlpha.png" width="30" height="30" alt="">
       CL Alpha
@@ -154,14 +142,14 @@ if($row['postID'] == ''){
             <a class="nav-link active-item" href="./galerie.php">Galerie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active-item" href="./articles.php">Articles</a>
+            <a class="nav-link active-item" href="#">Articles</a>
           </li>
         </li>
       </ul>
     </div>
   </nav>
 
-   <br>
+	<br>
 	<br>
     <div class="container bg-dark text-light" id="wrapper">
 		<div class="row border-bottom">
@@ -176,20 +164,31 @@ if($row['postID'] == ''){
 			<div class="col-10">
 				<br>
 				<br>
-				<?php    
-					echo '<div>';
-					echo '<h2>'.$row['postTitle'].'</h1>';
-					echo '<p>Posté le '.date('jS M Y', strtotime($row['postDate'])).'</p>';
-					echo '<p>'.$row['postCont'].'</p>';                
-					echo '</div>';
+				<?php
+					try {
+
+						$stmt = $db->query('SELECT postID, postTitle, postDesc, postDate FROM blog_posts ORDER BY postID DESC');
+						while($row = $stmt->fetch()){
+
+							echo '<div>';
+								echo '<h2><a href="viewpost.php?id='.$row['postID'].'">'.$row['postTitle'].'</a></h1>';
+								echo '<p>Posté le '.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
+								echo '<p>'.$row['postDesc'].'</p>';
+								echo '<p><a href="viewpost.php?id='.$row['postID'].'">Plus...</a></p>';
+							echo '</div><br>';
+
+						}
+
+					} catch(PDOException $e) {
+						echo $e->getMessage();
+					}
 				?>
-				<br>
 			</div>
-			<div class="col-1"></div
+			<div class="col-1"></div>
 		</div>
     </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="./js/bootstrap-4-hover-navbar.js"></script>

@@ -1,11 +1,13 @@
+<?php require('includes/config.php'); ?>
+
 <!doctype html>
 <html lang="fr">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-	<link rel="shortcut icon" href="./Images/favicon.ico" >
+
+	  <link rel="shortcut icon" href="./Images/favicon.ico" >
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -141,6 +143,9 @@
             <li class="nav-item">
               <a class="nav-link active-item" href="./galerie.php">Galerie</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active-item" href="./articles.php">Articles</a>
+            </li>
           </li>
         </ul>
       </div>
@@ -200,29 +205,66 @@
     </div>
 
 
-    <div class="container bg-dark">
+    <div class="container bg-dark text-light">
       <br>
       <div class="row">
         <div class="col-12 text-center">
           <a href="./Sorties/Planning.html">
           <img src="./Images/Rappel_Sorties.png" class="img-fluid" alt="Sortie du week end : Pensez à vous inscrire !">
           <!--@everyone-->
+		  </a>
         </div>
       </div>
       <br>
-      <div class="row">
-        <div class="col">
-          <a class="twitter-timeline" data-lang="fr" data-width="350" data-height="500" data-theme="dark" data-link-color="#F5F8FA" href="https://twitter.com/Alpha_ffxiv?ref_src=twsrc%5Etfw">Tweets by Alpha_ffxiv</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <div class="row justify-content-between">
+	 
+        <div class="col test-left text-light">
+          <h1 class="display-4">Derniers articles</h1>
+          <hr class="text-light">
+          <ul>
+            <?php
+              $stmt = $db->query('SELECT postTitle, postID, postDesc FROM blog_posts ORDER BY postID DESC LIMIT 5');
+              while($row = $stmt->fetch()){
+                echo '<li ><h4><a class="text-light" href="'.$row['postID'].'">'.$row['postTitle'].'<small class="text-muted">'.$row['postDesc'].'</small></a></h4></li>';
+              }
+            ?>
+          </ul>
         </div>
-        <div class="col-md-auto text">
+        <div class="col-auto text-right">
           <iframe src="https://discordapp.com/widget?id=194076527774793738&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
         </div>
       </div>
       <div class="row">
-        <!-- start feedwind code -->
+        <div class="col-8 text-left">
+          <br>
+      <div class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <?php
+            $class_active = true;
+            $dirname = "./Images/Galerie/";
+            $images = glob($dirname."*.png");
+            foreach($images as $image) {
+              echo '<div class="carousel-item ';
+			  if($class_active == true){ echo 'active' ; $class_active = false;}
+			  echo '"><img  class="d-block w-100 rounded" src="';
+			  echo $image;
+			  echo '" /></div> ';
+            }
+            ?>
+          </div>
+        </div>
+      <br>
+        </div>
+        <div class="col-auto text-right">
+          <a class="twitter-timeline" data-lang="fr" data-width="350" data-height="500" data-theme="dark" data-link-color="#F5F8FA" href="https://twitter.com/Alpha_ffxiv?ref_src=twsrc%5Etfw">Tweets by Alpha_ffxiv</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div>
+      </div>
+	  <br>
+	  <div class="row">
+		<!-- start feedwind code -->
         <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="82911/"></script>
         <!-- end feedwind code -->
-      </div>
+	  </div>
     </div>
 
     <br>
