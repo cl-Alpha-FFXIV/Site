@@ -19,7 +19,7 @@
 <body>
 
   <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark btco-hover-menu">
-    <a class="navbar-brand" href="./accueil.html">
+    <a class="navbar-brand" href="./accueil.php">
       <img src="./Images/logoAlpha.png" width="30" height="30" alt="">
       CL Alpha
     </a>
@@ -29,7 +29,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link active-item" href="./planning.html">Planning</a>
+          <a class="nav-link" href="./planning.html">Planning</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -139,13 +139,17 @@
         </li>
         <li>
           <li class="nav-item">
-            <a class="nav-link active-item" href="./galerie.php">Galerie</a>
+            <a class="nav-link" href="./galerie.php">Galerie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active-item" href="#">Articles</a>
+            <a class="nav-link active-item" href="./articles.php">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./presentation.html">Présentation</a>
           </li>
         </li>
       </ul>
+      <a class="nav-link" href="https://www.youtube.com/channel/UCJkON46FXMqh8rRD2QzvouQ"><i class="fas fa-youtube"></i></a>
     </div>
   </nav>
 

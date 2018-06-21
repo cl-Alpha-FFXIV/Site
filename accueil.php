@@ -31,7 +31,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link active-item" href="./planning.html">Planning</a>
+            <a class="nav-link" href="./planning.html">Planning</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,13 +141,17 @@
           </li>
           <li>
             <li class="nav-item">
-              <a class="nav-link active-item" href="./galerie.php">Galerie</a>
+              <a class="nav-link" href="./galerie.php">Galerie</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active-item" href="./articles.php">Articles</a>
+              <a class="nav-link" href="./articles.php">Articles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./presentation.html">Présentation</a>
             </li>
           </li>
         </ul>
+        <a class="nav-link" href="https://www.youtube.com/channel/UCJkON46FXMqh8rRD2QzvouQ"><i class="fas fa-youtube"></i></a>
       </div>
     </nav>
 
@@ -159,22 +163,34 @@
     <br>
     <br>
     <div class="container ">
-      <div id="carouselIndicators" class="carousel slide shadow-lg" data-ride="carousel">
+      <div id="carouselAnnonces" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <?php
+            $nb_images = 0;
+            $dirname = "./Images/Annonces/";
+            $images = glob($dirname."*.png");
+            foreach($images as $image) {
+              echo '<li data-target="#carouselAnnonces" data-slide-to="';
+              echo $nb_images;
+              echo '"'
+			  if($nb_images == 0){ echo ' class="active"'}
+			  echo '"></li> ';
+            }
+            ?>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="./Images/Carousel/kugane_carousel.png" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="./Images/Carousel/ishgard_carousel.jpg" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="./Images/Carousel/midgardsorm_carousel.jpg" alt="Third slide">
-          </div>
+          <?php
+            $class_active = true;
+            $dirname = "./Images/Annonces/";
+            $images = glob($dirname."*.png");
+            foreach($images as $image) {
+              echo '<div class="carousel-item ';
+			  if($class_active == true){ echo 'active' ; $class_active = false;}
+			  echo '"><img  class="d-block w-100 rounded" src="';
+			  echo $image;
+			  echo '" /></div> ';
+            }
+            ?>
         </div>
         <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -217,7 +233,7 @@
       </div>
       <br>
       <div class="row justify-content-between">
-	 
+
         <div class="col test-left text-light">
           <h1 class="display-4">Derniers articles</h1>
           <hr class="text-light">
