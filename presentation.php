@@ -1,16 +1,3 @@
-<?php require('includes/config.php');
-
-$stmt = $db->prepare('SELECT postID, postTitle, postCont, postDate FROM blog_posts WHERE postID = :postID');
-$stmt->execute(array(':postID' => $_GET['id']));
-$row = $stmt->fetch();
-
-//if post does not exists redirect user.
-if($row['postID'] == ''){
-    header('Location: ./');
-    exit;
-}
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -174,7 +161,7 @@ if($row['postID'] == ''){
 		<div class="row border-bottom">
 			<div class="col-12 text-center">
 				<br>
-				<div class="display-1">Articles</div>
+				<div class="display-1">Alpha</div>
 				<br>
 			</div>
 		</div>
@@ -183,18 +170,127 @@ if($row['postID'] == ''){
 			<div class="col-10">
 				<br>
 				<br>
-				<?php
-					echo '<div>';
-					echo '<h2>'.$row['postTitle'].'</h1>';
-					echo '<p>Posté le '.date('jS M Y', strtotime($row['postDate'])).'</p>';
-					echo '<p>'.$row['postCont'].'</p>';
-					echo '</div>';
-				?>
+				<div class="display-4">Qui sont les Alpha</div>
+        <p>
+          <br>
+          Nous sommes une Compagnie Libre francophone, sur Final Fantasy XIV, serveur Phoenix
+          <br>
+          <br>
+          Fondée début 2015 par Azazel Nova, Deathangel Aeternum, Osiris Lanaine et Saeko Saijitsu, elle a fait son petit bonhomme de chemin, non sans déboires, pour arriver là ou elle est.
+          <br>
+          <br>
+          Aujourd'hui, la CL est dirigée par un conseil de 5 officiers, et fait tout son possible pour répondre aux attentes de tous types de joueurs. Du contenu HL avec le roster, ou des contenus plus casual durant les sorties du weekend, de l'entraide pour le leveling, des conseils pour le craft et la récolte, et même un expert en Gold Saucer !
+          <br>
+          <br>
+        </p>
+        <div class="display-4">Le Conseil des <del>Quatre</del> Cinq</div>
 				<br>
-			</div>
-			<div class="col-1"></div
+        <div class="card-deck">
+          <div class="card bg-secondary">
+            <img class="card-img-top" src="./Images/Presentation/Alwine.png" alt="Une miqo'te bleue">
+            <div class="card-body">
+              <h5 class="card-title text-center">Alwine Bellamy</h5>
+              <a class="center" target="_blank" href="https://fr.finalfantasyxiv.com/lodestone/character/10482593/"><img class="center" src="./Images/Presentation/ffxivmeteorlogo2.png" width="31" height="32"></img></a>
+            </div>
+          </div>
+          <div class="card bg-secondary">
+            <img class="card-img-top" src="./Images/Presentation/Naryla.png" alt="Un troll">
+            <div class="card-body">
+              <h5 class="card-title text-center">Naryla Majora</h5>
+              <a class="center" target="_blank" href="https://fr.finalfantasyxiv.com/lodestone/character/10245728/"><img class="center" src="./Images/Presentation/ffxivmeteorlogo2.png" width="31" height="32"></img></a>
+            </div>
+          </div>
+          <div class="card bg-secondary">
+            <img class="card-img-top" src="./Images/Presentation/Sumire.png" alt="Une mignonne potato">
+            <div class="card-body">
+              <h5 class="card-title text-center">Sumire Tasuky</h5>
+              <a class="center" target="_blank" href="https://fr.finalfantasyxiv.com/lodestone/character/7987472/"><img class="center" src="./Images/Presentation/ffxivmeteorlogo2.png" width="31" height="32"></img></a>
+            </div>
+          </div>
+          <div class="card bg-secondary">
+            <img class="card-img-top" src="./Images/Presentation/Valender.png" alt="Une potato">
+            <div class="card-body">
+              <h5 class="card-title text-center">Valender Blackholm</h5>
+              <a class="center" target="_blank" href="https://fr.finalfantasyxiv.com/lodestone/character/10795165/"><img class="center" src="./Images/Presentation/ffxivmeteorlogo2.png" width="31" height="32"></img></a>
+            </div>
+          </div>
+          <div class="card bg-secondary">
+            <img class="card-img-top" src="./Images/Presentation/Kaelhula.png" alt="Un caribou">
+            <div class="card-body">
+              <h5 class="card-title text-center">Kaelhula Sangwis</h5>
+              <a class="center" target="_blank" href="https://fr.finalfantasyxiv.com/lodestone/character/17756049/"><img class="center" src="./Images/Presentation/ffxivmeteorlogo2.png" width="31" height="32"></img></a>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="display-4">La Maison de Compagnie</div>
+        <br>
+        <img class="img-fluid" src="./Images/Presentation/panorama.png" alt="Un château Hingashien en plein coeur du Thanalan">
+        <p>
+          <br>
+          Située à La Coupe (secteur 6, emplacement 60), la Maison des Alpha offre tout le confort moderne à ses membres.<br>
+          <br>
+          Entre son bar à sushi, où sont mis à disposition des plats pour les raideurs, ses ateliers de craft, couvrant tous les métiers, et sa grande salle de réunion, tout est mis en oeuvre pour offrir un lieu de rencontres et de joie.<br>
+        </p>
+        <br>
+        <div class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <?php
+              $class_active = true;
+              $dirname = "./Images/Presentation/Maison/";
+              $images = glob($dirname."*.png");
+              foreach($images as $image) {
+                echo '<div class="carousel-item ';
+  			  if($class_active == true){ echo 'active' ; $class_active = false;}
+  			  echo '"><img  class="d-block w-100 rounded" src="';
+  			  echo $image;
+  			  echo '" /></div> ';
+              }
+              ?>
+            </div>
+          </div>
+          <br>
+
+        </div>
+        <div class="col-1"></div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-8">
+            <br>
+            <div class="display-4">Le Site</div>
+            <br>
+            <p>
+              Issu de la volonté d'accéder plus facilement aux annonces de CL (et aussi à cause d'une immobilisation de 10 jours en attelle), ce site est là pour vous !<br>
+              <br>
+              Donc si vous avez la moindre remarque/suggestion, n'hésitez pas à venir m'en parler en jeu !
+            </p>
+          </div>
+          <div class="col-2">
+            <div class="card bg-secondary">
+              <img class="card-img-top" src="./Images/Presentation/Elseyna.png" alt="Une miqo'te sexy">
+              <div class="card-body">
+                <h5 class="card-title text-center">Elseyna Selenyl</h5>
+                <p class="card-text text-center">Webmaster</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10 text-center">
+            <br>
+            <div class="display-4">Nous avons écrit l'Alpha, à vous d'écrire l'Oméga...<br></div>
+            <br>
+          </div>
+          <div class="col-1"></div>
+        </div>
+        <br>
 		</div>
-    </div>
+<br>
+<br>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

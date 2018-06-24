@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
     <link href="./css/bootstrap-4-hover-navbar.css" rel="stylesheet">
 
     <title>Alpha - CL FFXIV</title>
@@ -28,6 +30,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./presentation.php">Présentation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./articles.php">Articles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./galerie.php">Galerie</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="./planning.html">Planning</a>
         </li>
@@ -138,18 +149,10 @@
           </ul>
         </li>
         <li>
-          <li class="nav-item">
-            <a class="nav-link" href="./galerie.php">Galerie</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active-item" href="./articles.php">Articles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./presentation.html">Présentation</a>
-          </li>
         </li>
       </ul>
-      <a class="nav-link" href="https://www.youtube.com/channel/UCJkON46FXMqh8rRD2QzvouQ"><i class="fas fa-youtube"></i></a>
+      <a class="nav-link" href="https://www.twitch.com/clalphaffxiv"><span style="font-size: 30px; color: white;"><i class="fab fa-twitch"></i></span></a>
+      <a class="nav-link" href="https://www.youtube.com/channel/UCJkON46FXMqh8rRD2QzvouQ"><span style="font-size: 30px; color: white;"><i class="fab fa-youtube"></i></span></a>
     </div>
   </nav>
 

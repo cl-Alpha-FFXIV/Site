@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
     <link href="./css/bootstrap-4-hover-navbar.css" rel="stylesheet">
 
     <title>Alpha - CL FFXIV</title>
@@ -21,7 +23,7 @@
   <body>
 
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark btco-hover-menu">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="./accueil.php">
         <img src="./Images/logoAlpha.png" width="30" height="30" alt="">
         CL Alpha
       </a>
@@ -30,6 +32,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./presentation.php">Présentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./articles.php">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./galerie.php">Galerie</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="./planning.html">Planning</a>
           </li>
@@ -140,18 +151,10 @@
             </ul>
           </li>
           <li>
-            <li class="nav-item">
-              <a class="nav-link" href="./galerie.php">Galerie</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./articles.php">Articles</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./presentation.html">Présentation</a>
-            </li>
           </li>
         </ul>
-        <a class="nav-link" href="https://www.youtube.com/channel/UCJkON46FXMqh8rRD2QzvouQ"><i class="fas fa-youtube"></i></a>
+        <a class="nav-link" href="https://www.twitch.com/clalphaffxiv"><span style="font-size: 30px; color: white;"><i class="fab fa-twitch"></i></span></a>
+        <a class="nav-link" href="https://www.youtube.com/channel/UCJkON46FXMqh8rRD2QzvouQ"><span style="font-size: 30px; color: white;"><i class="fab fa-youtube"></i></span></a>
       </div>
     </nav>
 
@@ -172,8 +175,8 @@
             foreach($images as $image) {
               echo '<li data-target="#carouselAnnonces" data-slide-to="';
               echo $nb_images;
-              echo '"'
-			  if($nb_images == 0){ echo ' class="active"'}
+              echo '"';
+			  if($nb_images == 0){ echo ' class="active"';}
 			  echo '"></li> ';
             }
             ?>
@@ -192,11 +195,11 @@
             }
             ?>
         </div>
-        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carouselAnnonces" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselAnnonces" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -225,7 +228,7 @@
       <br>
       <div class="row">
         <div class="col-12 text-center">
-          <a href="./Sorties/Planning.html">
+          <a href="./planning.html">
           <img src="./Images/Rappel_Sorties.png" class="img-fluid" alt="Sortie du week end : Pensez à vous inscrire !">
           <!--@everyone-->
 		  </a>
@@ -241,7 +244,7 @@
             <?php
               $stmt = $db->query('SELECT postTitle, postID, postDesc FROM blog_posts ORDER BY postID DESC LIMIT 5');
               while($row = $stmt->fetch()){
-                echo '<li ><h4><a class="text-light" href="'.$row['postID'].'">'.$row['postTitle'].'<small class="text-muted">'.$row['postDesc'].'</small></a></h4></li>';
+                echo '<li ><h4><a class="text-light" href="./viewpost.php?id='.$row['postID'].'">'.$row['postTitle'].'<small class="text-muted">'.$row['postDesc'].'</small></a></h4></li>';
               }
             ?>
           </ul>
@@ -251,36 +254,66 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-8 text-left">
+        <div class="col-8 text-left align-middle">
           <br>
-      <div class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <?php
-            $class_active = true;
-            $dirname = "./Images/Galerie/";
-            $images = glob($dirname."*.png");
-            foreach($images as $image) {
-              echo '<div class="carousel-item ';
-			  if($class_active == true){ echo 'active' ; $class_active = false;}
-			  echo '"><img  class="d-block w-100 rounded" src="';
-			  echo $image;
-			  echo '" /></div> ';
-            }
-            ?>
+          <br>
+          <div class="embed-responsive embed-responsive-16by9">
+            <!-- Add a placeholder for the Twitch embed -->
+            <div id="twitch-embed"></div>
+            <!-- Load the Twitch embed script -->
+            <script src="https://embed.twitch.tv/embed/v1.js"></script>
+            <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+            <script type="text/javascript">
+              new Twitch.Embed("twitch-embed", {
+                width: 720,
+                height: 500,
+                layout: "video",
+                channel: "clalphaffxiv"
+              });
+            </script>
           </div>
-        </div>
-      <br>
+          <br>
+          <br>
         </div>
         <div class="col-auto text-right">
           <a class="twitter-timeline" data-lang="fr" data-width="350" data-height="500" data-theme="dark" data-link-color="#F5F8FA" href="https://twitter.com/Alpha_ffxiv?ref_src=twsrc%5Etfw">Tweets by Alpha_ffxiv</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>
       </div>
 	  <br>
-	  <div class="row">
-		<!-- start feedwind code -->
+    <div class="row center">
+    <div class="carousel slide center" data-ride="carousel">
+      <div class="carousel-inner">
+        <?php
+          $class_active = true;
+          $dirname = "./Images/Galerie/";
+          $images = glob($dirname."*.png");
+          $randomImage1 = $images[array_rand($images)];
+          $randomImage2 = $images[array_rand($images)];
+          $randomImage3 = $images[array_rand($images)];
+          echo '<div class="carousel-item active"><img  class="d-block w-100 rounded" src="';
+          echo $randomImage1;
+          echo '" /></div> ';
+
+          echo '<div class="carousel-item"><img  class="d-block w-100 rounded" src="';
+          echo $randomImage2;
+          echo '" /></div> ';
+
+          echo '<div class="carousel-item"><img  class="d-block w-100 rounded" src="';
+          echo $randomImage3;
+          echo '" /></div> ';
+          ?>
+        </div>
+      </div>
+      <br>
+      </div>
+      <div class="row">
+        <!-- start feedwind code -->
         <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="82911/"></script>
         <!-- end feedwind code -->
-	  </div>
+      </div>
+    </div>
+    </div>
+
     </div>
 
     <br>
