@@ -69,6 +69,30 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
                     ':postDate' => date('Y-m-d H:i:s')
                 ));
 
+                $url = 'https://discordapp.com/api/webhooks/462365078570663937/q8CsTHJLDheHH1ptmKu9nvSS2UPkXrhisFGHkp0BEXcxXrNU0sS-GztXNezLDHqTLcRA';
+
+                $descTrimmed1 = str_replace('<p>', '', $postDesc);
+                $descTrimmed2 = str_replace('</p>', '', $descTrimmed1);
+
+                $postData = array(
+                  'content' => '**'.$postTitle . "**\n" . $descTrimmed2,
+                  'username' => "Site Alpha",
+                  'avatar_url' => 'http://www.cl-alpha-ffxiv.fr/Images/Logo_Alpha_dark.png'
+                );
+
+                $opts = array(
+                  'http'=>array(
+                    'header'  => "Content-type: application/json\r\n",
+                    'method'  => "POST",
+                    'content' => json_encode($postData)
+                  )
+                );
+
+                $context = stream_context_create($opts);
+                $fp = fopen($url, 'r', false, $context);
+                fpassthru($fp);
+                fclose($fp);
+
                 //redirect to index page
                 header('Location: index.php?action=added');
                 exit;
